@@ -1,0 +1,72 @@
+DESAFIO - EXPLICACAO DOS PROGRAMAS
+==================================
+
+Requisito: Python 3 instalado. Rodar todos os comandos dentro desta pasta.
+
+
+1) comissao.py - Comissao dos vendedores
+----------------------------------------
+Le o arquivo vendas.json e calcula a comissao total de cada vendedor.
+
+A regra e aplicada venda por venda:
+  - abaixo de R$ 100,00 ......... sem comissao
+  - de R$ 100,00 ate R$ 499,99 .. 1% de comissao
+  - a partir de R$ 500,00 ....... 5% de comissao
+
+As comissoes de cada venda sao somadas por vendedor e o resultado e
+exibido na tela. Os valores usam Decimal (e nao float) para evitar erros
+de arredondamento com dinheiro.
+
+Como rodar:  python comissao.py
+
+
+2) estoque.py - Movimentacao de estoque
+---------------------------------------
+Le os produtos do arquivo estoque.json e abre um menu no terminal para
+lancar entradas e saidas de mercadoria.
+
+Para cada movimentacao o programa pede:
+  - codigo do produto
+  - tipo (entrada ou saida)
+  - quantidade
+  - descricao da movimentacao (ex: "Compra fornecedor", "Venda balcao")
+
+Cada movimentacao recebe um numero identificador unico (UUID) e a data/hora.
+Ao final, o programa mostra a quantidade final em estoque do produto.
+
+Validacoes: produto inexistente, tipo invalido, quantidade zero/negativa
+e saida maior que o estoque disponivel sao recusados com mensagem de erro.
+
+Observacao: as movimentacoes ficam em memoria enquanto o programa esta
+aberto; o estoque.json original nao e alterado.
+
+Como rodar:  python estoque.py   (Enter vazio no codigo do produto para sair)
+
+
+3) juros.py - Calculo de juros por atraso
+-----------------------------------------
+Pede um valor e uma data de vencimento (dd/mm/aaaa) e calcula os juros
+ate a data de hoje, com taxa de 2,5% ao dia (juros simples):
+
+  juros = valor x 2,5% x dias de atraso
+
+Se a data de vencimento ainda nao passou, os juros sao zero.
+Mostra os dias em atraso, o valor dos juros e o total a pagar.
+
+Como rodar:  python juros.py
+
+
+4) test_desafio.py - Testes
+---------------------------
+Confere as regras principais dos tres programas: limites de comissao
+(R$ 100 e R$ 500), entrada/saida de estoque, bloqueio de estoque negativo,
+IDs unicos e calculo de juros com e sem atraso. Se tudo estiver certo,
+imprime "ok".
+
+Como rodar:  python test_desafio.py
+
+
+Arquivos de dados
+-----------------
+vendas.json  - vendas do time comercial (usado pelo exercicio 1)
+estoque.json - produtos e quantidades iniciais (usado pelo exercicio 2)
